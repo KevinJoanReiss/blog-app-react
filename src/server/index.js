@@ -7,6 +7,7 @@ const cors = require('cors')
 app.use(cors())
 
 const server = http.createServer(app)
+const timeout = 5000
 
 const io = new Server(server, {
   cors: {
@@ -16,10 +17,12 @@ const io = new Server(server, {
 })
 
 io.on('connection', (socket) => {
-    console.log(`User connected: ${socket.id}`)
-    socket.emit('newPost', 'test message')
-  
+  console.log(`User connected: ${socket.id}`)
 
+
+  setInterval(() => {
+    socket.emit('newPost', 'test message 20')
+  }, timeout)
 })
 
 server.listen(3001, () => {
