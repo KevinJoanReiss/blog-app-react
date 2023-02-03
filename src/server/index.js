@@ -19,7 +19,6 @@ const io = new Server(server, {
 io.on('connection', (socket) => {
   console.log(`User connected: ${socket.id}`)
 
-
   setInterval(() => {
     socket.emit('newPost', 'test message 20')
   }, timeout)
