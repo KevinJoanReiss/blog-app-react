@@ -7,13 +7,13 @@ const socket = io.connect('http://localhost:3001')
 function App() {
   const [blogPosts, setBlogPosts] = useState([])
 
-  const blogPostsList = blogPosts.map((item) => <li>{item}</li>)
+  const blogPostsList = blogPosts.map((item) => <li>{JSON.stringify(item.blogText)}</li>)
 
   useEffect(() => {
     socket.addEventListener(
       'newPost',
       (data) => {
-        setBlogPosts([...blogPosts, data])
+        setBlogPosts(data)
       },
       [socket]
     )
