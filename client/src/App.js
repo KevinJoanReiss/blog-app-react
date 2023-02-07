@@ -6,14 +6,19 @@ import BlogPost from './components/BlogPost'
 const socket = io.connect('http://localhost:3001')
 
 function App() {
-  const [blogPosts, setBlogPosts] = useState([])
+  const [blogPosts, setBlogPosts] = useState(
+    JSON.parse(localStorage.getItem('blog-posts')) || []
+  )
 
-  const blogPostsList = blogPosts.map((item) => <BlogPost blogText={item.blogText} wordCountMap={item.wordCountMap}/>)
+  const blogPostsList = blogPosts.map((item) => (
+    <BlogPost blogText={item.blogText} wordCountMap={item.wordCountMap} />
+  ))
 
   useEffect(() => {
     socket.addEventListener(
       'newPost',
       (data) => {
+        localStorage.setItem('blog-posts', JSON.stringify(blogPosts));
         setBlogPosts(data)
       },
       [socket]

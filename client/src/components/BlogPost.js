@@ -20,7 +20,6 @@ function BlogPost({ blogText, wordCountMap }) {
       </button>
       <Modal
         isOpen={modalIsOpen}
-        //onRequestClose={closeModal}
         style={{width: 300}}
       >
           <p>{JSON.stringify(wordCountMap)}</p>

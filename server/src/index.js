@@ -23,7 +23,6 @@ io.on('connection', (socket) => {
   setInterval(async() => {
     const blogs = await fetchData()
     const blogPostWithWordCount = getBlogPostsWithWordCount(blogs)
-    console.log(JSON.stringify(blogPostWithWordCount))
     socket.emit('newPost', blogPostWithWordCount)
   }, timeout)
 })
