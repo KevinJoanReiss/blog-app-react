@@ -19,10 +19,13 @@ function getWordCount(text) {
  * @returns array of objects with blog text and worcount
  */
 export function getBlogPostsWithWordCount(blogPosts) {
+  if(blogPosts === undefined) {
+    return []
+  }
   return blogPosts.map((item) => {
     //delete all the html tags in the text
     const cleanText = item.content.rendered.replace(/<[^>]*>|\n/g, '')
     const wordcountMap = getWordCount(cleanText)
-    return { blogText: cleanText, wordCountMap: wordcountMap}
+    return { id: item.id, blogText: cleanText, wordCountMap: wordcountMap}
   })
 }

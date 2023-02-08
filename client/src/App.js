@@ -11,14 +11,18 @@ function App() {
   )
 
   const blogPostsList = blogPosts.map((item) => (
-    <BlogPost blogText={item.blogText} wordCountMap={item.wordCountMap} />
+    <BlogPost
+      key={item.id}
+      blogText={item.blogText}
+      wordCountMap={item.wordCountMap}
+    />
   ))
 
   useEffect(() => {
     socket.addEventListener(
       'newPost',
       (data) => {
-        localStorage.setItem('blog-posts', JSON.stringify(blogPosts));
+        localStorage.setItem('blog-posts', JSON.stringify(blogPosts))
         setBlogPosts(data)
       },
       [socket]

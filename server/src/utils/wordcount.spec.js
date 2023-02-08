@@ -12,4 +12,13 @@ describe('test wordCount.js', () => {
     //assert
     expect(result.length).toBe(2)
   })
+
+  test('test getBlogPostsWithWordCount with undefined array', () => {
+    //arrange
+    const blogs = undefined
+    //act
+    const result = getBlogPostsWithWordCount(blogs)
+    //assert
+    expect(result.length).toBe(0)
+  })
 })
