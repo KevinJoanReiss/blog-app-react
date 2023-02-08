@@ -1,7 +1,7 @@
 # Getting Started with Blog App
 
-This projects contains a client and a server app which fetches the blog posts from internate.org. The client runs on port 3000 and the server on port 3001.
-Make sure that the ports are free to use or change the ports in the client and server app to your prefrences.
+This project contains a client and a server application which fetch the blog posts from internate.org and count the words of each post. The client runs on port 3000 and the server on port 3001.
+Make sure that the ports are free to use or change the ports in the client and the server app to your prefrences.
 
 ## Server Setup
 
