@@ -1,6 +1,7 @@
 # Getting Started with Blog App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This projects contains a client and a server app which fetches the blog posts from internate.org. The client runs on port 3000 and the server on port 3001.
+Make sure that the ports are free to use or change the ports in the client and server app to your prefrences.
 
 ## Server Setup
 
